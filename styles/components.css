@@ -1,0 +1,33 @@
+/* Opt-in classes only. No global reset or business-specific selectors. */
+.pv-scope { font-family: var(--pv-font-sans); color: var(--pv-foreground); line-height: 1.6; accent-color: var(--pv-primary); }
+.pv-scope *, .pv-scope *::before, .pv-scope *::after { box-sizing: border-box; }
+.pv-scope ::selection { background: var(--pv-primary); color: var(--pv-primary-foreground); }
+.pv-scope :focus-visible { outline: 2px solid var(--pv-ring); outline-offset: 3px; }
+.pv-shell { position: relative; isolation: isolate; background: var(--pv-shell); }
+.pv-shell::before { content: ''; position: absolute; inset: 0; z-index: -1; background: var(--pv-glow); pointer-events: none; }
+.pv-card { padding: 24px; border: 1px solid var(--pv-surface-border); border-radius: 12px; background: var(--pv-surface); box-shadow: var(--pv-surface-shadow); backdrop-filter: var(--pv-blur); -webkit-backdrop-filter: var(--pv-blur); }
+.pv-card--interactive { transition: background 180ms, border-color 180ms; }
+.pv-card--interactive:hover { background: var(--pv-surface-hover); border-color: var(--pv-surface-hover-border); }
+.pv-button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 10px 20px; border: 1px solid var(--pv-primary-border); border-radius: 8px; font: inherit; font-size: 14px; font-weight: 600; text-decoration: none; cursor: pointer; background: var(--pv-button-fill); color: var(--pv-button-text); box-shadow: var(--pv-button-shadow); transition: background 180ms, border-color 180ms; }
+.pv-button:hover:not(:disabled) { background: var(--pv-button-hover); }
+.pv-button--outline { background: transparent; border-color: var(--pv-border); color: var(--pv-foreground); box-shadow: none; }
+.pv-button--outline:hover:not(:disabled) { background: var(--pv-accent); border-color: var(--pv-primary); }
+.pv-button:disabled { opacity: .5; cursor: not-allowed; }
+.pv-input { width: 100%; min-height: 48px; padding: 10px 14px; border: 1px solid var(--pv-input); border-radius: 8px; background: var(--pv-field-fill); color: var(--pv-foreground); font: inherit; caret-color: var(--pv-primary); }
+.pv-input::placeholder { color: var(--pv-muted-foreground); opacity: 1; }
+.pv-input[aria-invalid="true"] { border-color: var(--pv-destructive); }
+.pv-input:disabled { opacity: .5; cursor: not-allowed; }
+.pv-label { display: block; margin-bottom: 8px; font-weight: 600; }
+.pv-muted { color: var(--pv-muted-foreground); }
+.pv-badge { display: inline-block; padding: 3px 10px; border-radius: 999px; background: var(--pv-accent); color: var(--pv-accent-foreground); font-size: 13px; }
+.pv-badge--success { background: var(--pv-success-surface); color: var(--pv-success-text); }
+.pv-error { color: var(--pv-destructive); }
+.pv-warning { color: var(--pv-warning-text); }
+.pv-progress { width: 100%; height: 8px; accent-color: var(--pv-primary); }
+.pv-progress::-webkit-progress-bar { background: var(--pv-muted); border-radius: 8px; }
+.pv-progress::-webkit-progress-value { background: var(--pv-primary); border-radius: 8px; }
+.pv-progress::-moz-progress-bar { background: var(--pv-primary); border-radius: 8px; }
+@supports not ((backdrop-filter: blur(20px)) or (-webkit-backdrop-filter: blur(20px))) {
+  [data-pv-theme="green"] { --pv-surface: #142019; --pv-surface-hover: #192b20; }
+}
+@media (prefers-reduced-motion: reduce) { .pv-button, .pv-card--interactive { transition: none; } }

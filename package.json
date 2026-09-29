@@ -1,0 +1,35 @@
+{
+  "name": "@leosasion/pixelvault-styles",
+  "version": "1.0.0",
+  "description": "Four reusable PixelVault color and material themes",
+  "type": "module",
+  "private": true,
+  "files": [
+    "styles",
+    "theme.js",
+    "theme.d.ts",
+    "tokens.json",
+    "README.md",
+    "SOURCE.md"
+  ],
+  "exports": {
+    ".": {
+      "types": "./theme.d.ts",
+      "default": "./theme.js"
+    },
+    "./styles.css": "./styles/index.css",
+    "./tokens.css": "./styles/tokens.css",
+    "./components.css": "./styles/components.css",
+    "./tokens.json": "./tokens.json"
+  },
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "preview": "node scripts/preview.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
