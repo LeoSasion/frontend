@@ -1,7 +1,7 @@
 {
-  "name": "@leosasion/pixelvault-styles",
-  "version": "1.0.0",
-  "description": "Four reusable PixelVault color and material themes",
+  "name": "@leosasion/frontend",
+  "version": "1.1.0",
+  "description": "Reusable UI styles from PixelVault and DLSS Studio",
   "type": "module",
   "private": true,
   "files": [
@@ -26,8 +26,9 @@
     "**/*.css"
   ],
   "scripts": {
-    "test": "node --test test/*.test.js",
-    "preview": "node scripts/preview.js"
+    "test": "node scripts/build-tokens.js --check && node --test test/*.test.js",
+    "preview": "node scripts/preview.js",
+    "build:tokens": "node scripts/build-tokens.js"
   },
   "engines": {
     "node": ">=20"

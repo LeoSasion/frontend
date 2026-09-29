@@ -1,4 +1,4 @@
-export type ThemeId = 'light' | 'mint' | 'green' | 'orange';
+export type ThemeId = 'light' | 'mint' | 'green' | 'orange' | 'dlss-dark' | 'dlss-light';
 export const themes: readonly Readonly<{ id: ThemeId; label: string }>[];
 export function isTheme(value: unknown): value is ThemeId;
 export function setTheme(theme: ThemeId, target?: Element): ThemeId;

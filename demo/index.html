@@ -1,21 +1,21 @@
 <!doctype html>
 <html lang="zh-CN" data-pv-theme="light">
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PixelVault Styles · 四主题样式库</title>
+<title>Frontend Styles · 六主题样式库</title>
 <link rel="stylesheet" href="../styles/index.css"><link rel="stylesheet" href="/demo/preview.css">
 <body class="pv-scope pv-shell">
-<header><a href="#main">PixelVault Styles</a><label>界面风格 <select id="theme" class="pv-input"><option value="light">清雅白紫</option><option value="mint">雾光薄荷</option><option value="green">暗夜黑绿</option><option value="orange">经典黑橙</option></select></label></header>
+<header><a href="#main">Frontend Styles</a><label>界面风格 <select id="theme" class="pv-input"><option value="light">清雅白紫</option><option value="mint">雾光薄荷</option><option value="green">暗夜黑绿</option><option value="orange">经典黑橙</option><option value="dlss-dark">DLSS 光谱深色</option><option value="dlss-light">DLSS 银灰浅色</option></select></label></header>
 <main id="main">
-<h1>同一套组件，<br>四种熟悉的质感。</h1><p class="intro pv-muted">从 PixelVault 工作台提取的颜色与材质。切换主题，比较背景、卡片、按钮和表单；也可以把不同风格放在同一页面。</p>
+<h1>同一套组件，<br>六种熟悉的质感。</h1><p class="intro pv-muted">从 PixelVault 与 DLSS Studio 提取的颜色与材质。切换主题，比较背景、卡片、按钮和表单；也可以把不同风格放在同一页面。</p>
 <section aria-labelledby="palette-title"><h2 id="palette-title">颜色与表面</h2><div id="palette" class="palette"></div></section>
 <section class="workspace" aria-label="组件交互示例">
 <form class="pv-card" id="form"><h2>创建方案</h2><p class="pv-muted">组件演示，不会提交生成任务。</p><label class="pv-label" for="name">方案名称</label><input class="pv-input" id="name" placeholder="例如：春季服装拍摄" required><label class="pv-label field" for="note">备注</label><textarea class="pv-input" id="note" rows="3" placeholder="记录可重复使用的参数"></textarea><div class="actions"><button class="pv-button">保存方案</button><button class="pv-button pv-button--outline" type="reset">重置</button><button class="pv-button" disabled>不可用</button></div><p id="feedback" role="status" class="pv-muted">输入名称后可试用保存反馈。</p></form>
-<div><h2>状态与层次</h2><div class="pv-card pv-card--interactive"><span class="pv-badge">组件示例</span><h3>材质随主题变化</h3><p class="pv-muted">白紫的轻阴影、薄荷的银白填充、黑绿的透光玻璃、黑橙的深色面板。</p><span class="pv-badge pv-badge--success">已完成</span><p class="pv-warning">请确认参数后继续</p><p class="pv-error">示例错误：请输入方案名称</p><label for="progress">示例进度 · 65%</label><progress id="progress" class="pv-progress" value="65" max="100">65%</progress></div></div>
+<div><h2>状态与层次</h2><label><input type="checkbox" id="glass"> 面板透明（DLSS 材质）</label><div class="pv-card pv-card--interactive"><span class="pv-badge">组件示例</span><h3>材质随主题变化</h3><p class="pv-muted">白紫的轻阴影、薄荷的银白填充、黑绿的透光玻璃、黑橙的深色面板。</p><span class="pv-badge pv-badge--success">已完成</span><p class="pv-warning">请确认参数后继续</p><p class="pv-error">示例错误：请输入方案名称</p><label for="progress">示例进度 · 65%</label><progress id="progress" class="pv-progress" value="65" max="100">65%</progress></div></div>
 </section>
 <section><h2>局部主题并排使用</h2><p class="pv-muted">每个区域独立设置 data-pv-theme，变量不会串色。</p><div class="compare" id="compare"></div></section>
 <section><h2>三行接入</h2><pre><code>&lt;link rel="stylesheet" href="styles/index.css"&gt;
 &lt;body class="pv-scope pv-shell" data-pv-theme="green"&gt;
   &lt;button class="pv-button"&gt;开始创作&lt;/button&gt;</code></pre><a class="pv-muted" href="../README.md">查看完整接入说明</a></section>
-</main><footer>PixelVault Styles · CSS 变量 / 原生 HTML / React / Vue</footer>
+</main><footer>Frontend Styles · CSS 变量 / 原生 HTML / React / Vue</footer>
 <script type="module" src="/demo/preview.js"></script>
 </body></html>

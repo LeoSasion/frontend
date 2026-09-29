@@ -16,3 +16,6 @@ for (const theme of themes) {
 }
 document.querySelector('#form').addEventListener('submit', event => { event.preventDefault(); document.querySelector('#feedback').textContent = `已保存演示方案：${document.querySelector('#name').value}（仅页面演示）`; });
 document.querySelector('#form').addEventListener('reset', () => { document.querySelector('#feedback').textContent = '输入名称后可试用保存反馈。'; });
+document.querySelector('#glass').addEventListener('change', event => {
+  document.querySelectorAll('.pv-card').forEach(card => card.classList.toggle('pv-glass', event.target.checked));
+});

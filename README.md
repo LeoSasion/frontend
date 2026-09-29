@@ -1,6 +1,6 @@
-# PixelVault Styles
+# Frontend Styles
 
-从 PixelVault 提取的四主题 CSS 样式库。零运行时依赖，无需 React、Vue 或 Tailwind；原生 CSS 可直接使用。仓库与包保持私有，不发布到公共 npm。
+从 PixelVault 与 DLSS Studio 提取的六主题 CSS 样式库。零运行时依赖，无需 React、Vue 或 Tailwind；原生 CSS 可直接使用。仓库与包保持私有，不发布到公共 npm。
 
 | ID | 风格 | 主色 | 材质 |
 | --- | --- | --- | --- |
@@ -8,6 +8,12 @@
 | `mint` | 雾光薄荷 | `#116f5c` | 灰蓝底、银白渐变、薄荷边缘 |
 | `green` | 暗夜黑绿 | `#75f59b` | 绿光背景、20px 毛玻璃 |
 | `orange` | 经典黑橙 | `#ff6a00` | 深色面板、橙色实心按钮 |
+| `dlss-dark` | DLSS 光谱深色 | `#77fbd1` | 近黑渐变、青紫光谱边缘、薄荷反光按钮 |
+| `dlss-light` | DLSS 银灰浅色 | `#1aa88f` | 中性银灰背景、银白面板、深蓝灰文字 |
+
+DLSS 主题提取自 DLSS5 当前 Web 样式的最终覆盖结果。面板添加 `pv-glass` 类可启用 60% 不透明填充与 24px 背景模糊；移除后恢复原始实心材质。保留边缘反光，不降低文字透明度。浏览器内只能模糊网页背后的内容，不提供原生窗口的桌面穿透效果。
+
+仓库已从 `pixelvault-styles` 重命名为 `frontend`；包名更新为 `@leosasion/frontend`，原 `pv-` 类名、变量名及四套主题 ID 保持兼容。已有项目升级时更新依赖及 import 路径。`tokens.json` 是变量来源，编辑后运行 `npm run build:tokens` 同步 CSS。
 
 ## 预览与检查
 
@@ -20,7 +26,7 @@ npm test
 npm pack --dry-run
 ```
 
-预览可切换四种主题，演示按钮、表单、进度、状态以及局部主题并排使用。保存按钮只产生页面反馈，不调用业务接口。
+预览可切换六种主题，演示按钮、表单、进度、状态以及局部主题并排使用。保存按钮只产生页面反馈，不调用业务接口。
 
 ## 直接使用 CSS
 
@@ -46,13 +52,13 @@ npm pack --dry-run
 有仓库权限时通过 Git 安装，或本地打包：
 
 ```sh
-npm install git+ssh://git@github.com/LeoSasion/pixelvault-styles.git
+npm install git+ssh://git@github.com/LeoSasion/frontend.git
 # 本地：在本库运行 npm pack，然后在消费项目安装生成的 .tgz
 ```
 
 ```js
-import '@leosasion/pixelvault-styles/styles.css';
-import { setTheme, saveTheme, loadTheme } from '@leosasion/pixelvault-styles';
+import '@leosasion/frontend/styles.css';
+import { setTheme, saveTheme, loadTheme } from '@leosasion/frontend';
 setTheme(loadTheme());
 // 用户切换时：
 setTheme('green');
@@ -66,8 +72,8 @@ JS 只是可选辅助函数，CSS 不依赖它。导入模块不会访问 DOM �
 React：
 
 ```tsx
-import '@leosasion/pixelvault-styles/styles.css';
-import type { ThemeId } from '@leosasion/pixelvault-styles';
+import '@leosasion/frontend/styles.css';
+import type { ThemeId } from '@leosasion/frontend';
 export function Panel({ theme = 'green' }: { theme?: ThemeId }) {
   return <section data-pv-theme={theme} className="pv-scope pv-shell">
     <div className="pv-card"><button className="pv-button">保存</button></div>
@@ -79,7 +85,7 @@ Vue：在入口导入 CSS，模板中用 `:data-pv-theme="theme"` 绑定主题�
 
 ## 只用变量 / 接入已有组件
 
-仅导入 `@leosasion/pixelvault-styles/tokens.css`，使用 `var(--pv-primary)` 等完整 CSS 颜色值（无需再包 `hsl()`）。`tokens.json` 提供相同变量供工具读取，值可能含 `var()` / 渐变，不是全部已解析的 RGB 值。
+仅导入 `@leosasion/frontend/tokens.css`，使用 `var(--pv-primary)` 等完整 CSS 颜色值（无需再包 `hsl()`）。`tokens.json` 提供相同变量供工具读取，值可能含 `var()` / 渐变，不是全部已解析的 RGB 值。
 
 ```css
 .your-card {
